@@ -1,0 +1,21 @@
+<div ng-if="message">
+  <h3 ng-bind="message"></h3>
+</div>
+
+<div ng-hide="message">
+  <h1>Edit Selection</h1>
+  <form ng-submit = "update()">
+    <label for = "first">First Name</label>
+    <input type = "text" name = "first" ng-value = "friends.firstName" ng-model = "firstModel">
+
+    <label for = "last">Last Name</label>
+    <input type = "text" name = "last" ng-value = "friends.lastName" ng-model = "lastModel">
+
+    <label for = "birthday">Birthday</label>
+    <input type = "date" name = "birthday" ng-value = "friends.birthday | date: 'yyyy-MM-dd'" ng-model = "birthdayModel">
+    <input type = "submit" value = "Edit">
+  </form>
+
+</div>
+
+<a ng-href="#!/list"><button>Return to List</button></a>

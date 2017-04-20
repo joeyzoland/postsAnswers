@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>BOILER List Page</title>
+    <script src='angular/angular.js'></script>
+    <script src='angular-route/angular-route.js'></script>
+    <script src='assets/app.js'></script>
+    <script src='assets/factories/boilerFactory.js'></script>
+    <script src='assets/controllers/mainController.js'></script>
+    <script src='assets/controllers/listController.js'></script>
+
+
+
+  </head>
+
+  <body>
+
+    <div ng-controller = "mainController">
+      <h3>You are logged in as: {{login}}. &nbsp &nbsp &nbsp
+      <button ng-click = "logOut()">Log Out</button>
+    </h3>
+
+      <p>NAVIGATION BAR <br>
+        <a href="#!/">Link 1</a> | <a href="#!/">Link 2</a> | <a href="#!/">Link 3</a>
+      </p>
+
+      <hr>
+      <br>
+    </div>
+
+
+
+    <div ng-view="">
+    </div>
+  </body>
+</html>
