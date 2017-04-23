@@ -4,9 +4,8 @@ app.factory("boilerFactory", function($http) {
 
   var factory = {}
 
-  var login;
   factory.loginCheck = function(callback) {
-    if (!login) {
+    if (!factory.login) {
       while (loginAttempt == null || loginAttempt == "" | loginAttempt.length < 3) {
         if (!counter) {
           var counter = 0
@@ -16,10 +15,11 @@ app.factory("boilerFactory", function($http) {
         console.log("On attempt " + counter + ", you inserted", loginAttempt)
       }
     }
+    factory.login = loginAttempt
     callback(loginAttempt)
   }
   factory.logOut = function() {
-    login = null
+    factory.login = null
   }
 
 
@@ -46,16 +46,32 @@ app.factory("boilerFactory", function($http) {
       }
     })
   }
-  factory.update = function(fullBoilerObject, callback) {
-    $http.put("/boiler/" + fullBoilerObject.id, fullBoilerObject.object).then(function(returned_data) {
+
+  factory.createAnswer = function(newBoiler, callback) {
+    $http.post("/boilerPush/" + newBoiler.id, newBoiler.object).then(function(returned_data) {
+      //Hmm, I think these callbacks are pertaining to the scope?
       if (typeof(callback) == "function") {
         if (returned_data.data.message === "Success") {
-          factory.updateMessage = "User updated successfully!"
+          factory.createMessage = "Answer pushed successfully!"
         }
         callback(returned_data.data)
       }
     })
   }
+
+  factory.like = function(id, index, callback) {
+    $http.put("/boilerLike/" + id, {index}).then(function(returned_data) {
+      //Hmm, I think these callbacks are pertaining to the scope?
+      if (typeof(callback) == "function") {
+        if (returned_data.data.message === "Success") {
+          factory.createMessage = "Answer liked successfully!"
+        }
+        console.log("returned data", returned_data.data)
+        callback(returned_data.data)
+      }
+    })
+  }
+
   factory.delete = function(id, callback) {
     $http.delete("/boiler/" + id).then(function(returned_data) {
       callback(returned_data.data)

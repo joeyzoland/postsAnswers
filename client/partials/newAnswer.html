@@ -1,0 +1,27 @@
+<div ng-if="message">
+  <h3 ng-bind="message"></h3>
+</div>
+
+<a ng-href="#!/"><button>Home</button></a>
+<a ng-href="#!/show/{{boiler._id}}"><button>Go Back to Question</button></a>
+
+<div>
+
+  <div>
+    <h3 ng-bind=boiler.mainText></h3>
+    <h4 ng-bind=boiler.suppText></h4>
+  </div>
+
+  <form ng-submit = "create()">
+    <label for = "answer">Your Answer</label>
+    <input type = "text" name = "answer" ng-model = "answerModel">
+
+    <label for = "supplement">Supporting details for your answer (optional)</label>
+    <input type = "text" name = "supplement" ng-model = "supplementModel">
+
+    <a ng-href="#!/"><button>Cancel</button></a>
+    <input type = "submit" value = "Submit">
+
+  </form>
+
+</div>

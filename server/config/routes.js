@@ -1,6 +1,6 @@
 console.log("future routes")
 
-var boilers = require("../controllers/boilers.js")
+var boilers = require("../controllers/questions.js")
 
 module.exports = function(app){
   app.get("/boiler", function(req, res) {
@@ -15,6 +15,16 @@ module.exports = function(app){
     console.log("req.body", req.body)
     boilers.create(req, res)
   })
+
+  app.post("/boilerPush/:id", function(req, res) {
+    console.log("req.body", req.body)
+    boilers.createAnswer(req, res)
+  })
+  app.put("/boilerLike/:id", function(req, res) {
+    console.log("in routes, req.body is", req.body)
+    boilers.like(req, res)
+  })
+
   app.put("/boiler/:id", function(req, res) {
     boilers.update(req, res)
   })

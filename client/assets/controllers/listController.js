@@ -3,6 +3,11 @@ console.log("Reached listController")
 app.controller("listController", function($scope, boilerFactory, $routeParams) {
   $scope.boilers=[]
 
+  $scope.login = boilerFactory.login
+
+  boilerFactory.page = 1
+  console.log(boilerFactory.page)
+
   var index = function() {
     boilerFactory.index(function(data) {
       if (data.message == "Success") {

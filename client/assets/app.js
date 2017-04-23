@@ -7,9 +7,23 @@ app.config(function ($routeProvider) {
       templateUrl: "partials/list.html",
       controller: "listController"
     })
-    .otherwise({
-      redirectTo: "/"
+    .when("/new", {
+      templateUrl: "partials/new.html",
+      controller: "newController"
     })
+    .when("/show/:id", {
+      templateUrl: "partials/show.html",
+      controller: "showController"
+    })
+    .when("/newAnswer/:id", {
+      templateUrl: "partials/newAnswer.html",
+      controller: "newAnswerController"
+    })
+    // .otherwise({
+    //   redirectTo: "/"
+    // })
+
+
 })
 
 

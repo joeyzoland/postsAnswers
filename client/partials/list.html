@@ -3,26 +3,34 @@
 </div>
 
 <div>
+
+  <h3>Hi <span ng-bind="login"></span>! </h3>
+
+  <a ng-href="#!/new"><button>Add a Question</button></a>
+
+  <br><br>
+
+  Search: <input type = "text" ng-model="filter_text">
+
+  <br><br>
+
+
+
+
   <table>
     <tr>
-      <th>Name</th>
-      <th>Show</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>Question</th>
+      <th>Answers</th>
+      <th>Actions</th>
     </tr>
-    <tr ng-repeat = "boiler in boilers | filter: {birthday: filter_text} | orderBy:'firstName'">
-      <td>{{boiler.firstName}} {{boiler.lastName}}</td>
-      <td><a ng-href="#!/show/{{boiler._id}}"><button>Show</button></a>
-      <td><a ng-href="#!/edit/{{boiler._id}}"><button>Update</button></a>
-      <td><button ng-click = "delete(boiler._id)">Delete</button></td>
+    <tr ng-repeat = "boiler in boilers | filter: filter_text">
+      <td ng-bind=boiler.mainText></td>
+      <td ng-bind=boiler.answers.length></td>
+      <td>
+        <a ng-href="#!/show/{{boiler._id}}"><button>Show</button></a>
+        <a ng-href="#!/newAnswer/{{boiler._id}}"><button>Answer</button></a>
+      </td>
     </tr>
   </table>
-
-  <br>
-  Filter by birthday: <input type = "text" ng-model="filter_text" placeholder="e.g., '01/01/2000'">
-
-  <br>
-  <br>
-  <a ng-href="#!/new"><button>Create</button></a>
 
 </div>

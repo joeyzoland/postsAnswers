@@ -9,21 +9,16 @@
     <script src='assets/factories/boilerFactory.js'></script>
     <script src='assets/controllers/mainController.js'></script>
     <script src='assets/controllers/listController.js'></script>
-
-
-
+    <script src='assets/controllers/newController.js'></script>
+    <script src='assets/controllers/showController.js'></script>
+    <script src='assets/controllers/newAnswerController.js'></script>
   </head>
 
   <body>
 
     <div ng-controller = "mainController">
-      <h3>You are logged in as: {{login}}. &nbsp &nbsp &nbsp
-      <button ng-click = "logOut()">Log Out</button>
-    </h3>
 
-      <p>NAVIGATION BAR <br>
-        <a href="#!/">Link 1</a> | <a href="#!/">Link 2</a> | <a href="#!/">Link 3</a>
-      </p>
+      <button ng-click = "logOut()">Log Out</button>
 
       <hr>
       <br>

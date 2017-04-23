@@ -1,0 +1,18 @@
+<div ng-if="message">
+  <h3 ng-bind="message"></h3>
+</div>
+
+  <h1>New Question</h1>
+  <form ng-submit = "create()">
+    <label for = "question">Question</label>
+    <input type = "text" name = "question" ng-model = "questionModel">
+
+    <label for = "supplement">Supplement</label>
+    <input type = "text" name = "supplement" ng-model = "supplementModel">
+
+    <a ng-href="#!/"><button>Cancel</button></a>
+    <input type = "submit" value = "Submit">
+
+  </form>
+
+</div>

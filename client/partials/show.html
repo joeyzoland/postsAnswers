@@ -1,0 +1,23 @@
+<div ng-if="message">
+  <h3 ng-bind="message"></h3>
+</div>
+
+<div ng-hide="message">
+  <h3 ng-bind=boiler.mainText></h3>
+  <h4 ng-bind=boiler.suppText></h4>
+  <br>
+
+  <div ng-repeat="b in boiler.answers | orderBy:'-likes'">
+    <p>{{b}}</p>
+    <p>Answered by: <span ng-bind=b.user></span></p>
+    <p>Answer: <span ng-bind=b.mainText></span></p>
+    <p>Additional Information: <span ng-bind=b.suppText></span></p>
+    <p>Like Count: <span ng-bind=b.likes></span></p>
+    <button ng-click = "like(b)">Like</button>
+    <br><br>
+  </div>
+
+</div>
+
+<a ng-href="#!/"><button>Home</button></a>
+<a ng-href="#!/newAnswer/{{boiler._id}}"><button>Answer this Question</button></a>
